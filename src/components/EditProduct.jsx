@@ -53,7 +53,6 @@ const EditProduct = () => {
         }
     }, [id]);
 
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevData => ({
@@ -77,60 +76,98 @@ const EditProduct = () => {
     }
 
     return (
-        <div className="container mx-auto p-4">
-            <h2 className="text-xl mb-4 text-red-300">Edit Product</h2>
-            <form onSubmit={handleSubmit} className="space-y-4">
-                <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                    required
-                />
-                <textarea
-                    name="description"
-                    value={formData.description}
-                    onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                    required
-                />
-                <input
-                    type="number"
-                    name="price"
-                    value={formData.price}
-                    onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                    required
-                />
-                <input
-                    type="number"
-                    name="stock"
-                    value={formData.stock}
-                    onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                    required
-                />
-                <input
-                    type="text"
-                    name="category"
-                    value={formData.category}
-                    onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                    required
-                />
-                <input
-                    type="text"
-                    name="image_url"
-                    value={formData.image_url}
-                    onChange={handleChange}
-                    className="w-full p-2 border border-gray-300 rounded-md"
-                    required
-                />
-                <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600">
-                    Update Product
-                </button>
-            </form>
+        <div className="flex items-center justify-center min-h-screen bg-gray-50 p-6">
+            <div className="bg-white p-8 rounded-lg shadow-xl w-full sm:w-96">
+                <h2 className="text-2xl font-semibold text-gray-700 mb-6 text-center">Edit Product</h2>
+
+                {error && <div className="text-red-500 mb-4">{error}</div>}
+
+                <form onSubmit={handleSubmit} className="space-y-6">
+                    <div>
+                        <label htmlFor="name" className="block text-sm font-medium text-gray-600">Product Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            id="name"
+                            value={formData.name}
+                            onChange={handleChange}
+                            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="description" className="block text-sm font-medium text-gray-600">Description</label>
+                        <textarea
+                            name="description"
+                            id="description"
+                            value={formData.description}
+                            onChange={handleChange}
+                            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            rows="4"
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="price" className="block text-sm font-medium text-gray-600">Price</label>
+                        <input
+                            type="number"
+                            name="price"
+                            id="price"
+                            value={formData.price}
+                            onChange={handleChange}
+                            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="stock" className="block text-sm font-medium text-gray-600">Stock</label>
+                        <input
+                            type="number"
+                            name="stock"
+                            id="stock"
+                            value={formData.stock}
+                            onChange={handleChange}
+                            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="category" className="block text-sm font-medium text-gray-600">Category</label>
+                        <input
+                            type="text"
+                            name="category"
+                            id="category"
+                            value={formData.category}
+                            onChange={handleChange}
+                            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <label htmlFor="image_url" className="block text-sm font-medium text-gray-600">Image URL</label>
+                        <input
+                            type="text"
+                            name="image_url"
+                            id="image_url"
+                            value={formData.image_url}
+                            onChange={handleChange}
+                            className="w-full p-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+                            required
+                        />
+                    </div>
+
+                    <div>
+                        <button type="submit" className="w-full py-3 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
+                            Update Product
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

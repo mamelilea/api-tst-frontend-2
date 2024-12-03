@@ -6,7 +6,7 @@ const Card = ({ id, name, description, price, stock, category, image_url, onDele
     const navigate = useNavigate();
 
     const handleEdit = () => {
-        navigate(`/edit-product/${id}`);
+        navigate(`/edit/${id}`);
     };
 
     const handleDelete = () => {

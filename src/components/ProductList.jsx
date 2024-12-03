@@ -27,14 +27,26 @@ const ProductList = () => {
         }
     };
 
+    const handleLogout = () => {
+        sessionStorage.removeItem('admin');
+        navigate('/login');
+    };
+
     return (
         <div className="container mx-auto p-4">
             <h2 className="text-xl mb-4 text-red-300">Product</h2>
             <button
-                onClick={() => navigate('/create-product')}
+                onClick={() => navigate('/create')}
                 className="bg-green-500 text-white px-4 py-2 rounded-md mb-4 hover:bg-green-600"
             >
                 Add Product
+            </button>
+
+            <button
+                onClick={handleLogout}
+                className="bg-red-500 ml-5 text-white px-4 py-2 rounded-md mb-4 hover:bg-red-600"
+            >
+                Logout
             </button>
 
             {/* Product Cards */}
